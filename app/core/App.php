@@ -18,8 +18,6 @@ class App
             unset($url[0]);
         }
 
-        var_dump($this->controller);
-
         require_once '../app/controllers/' . $this->controller . '.php';
 
         $this->controller = new $this->controller;
