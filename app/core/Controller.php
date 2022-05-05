@@ -17,7 +17,7 @@ class Controller
             'debug' => true,
         ]);
 
-        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
+        $this->twig->addExtension(new DebugExtension());
     }
 
     protected function renderTemplate(string $templatePath, array $params = []): string
