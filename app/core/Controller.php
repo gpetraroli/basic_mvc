@@ -1,16 +1,23 @@
 <?php
 
+namespace App\core;
+
+use Twig\Environment;
+use Twig\Extension\DebugExtension;
+use Twig\Loader\FilesystemLoader;
+
 class Controller
 {
-    public function model($model)
-    {
-        require_once '../app/models/' . $model . '.php';
+    protected Environment $twig;
 
-        return new $model;
+    public function __construct()
+    {
+        $loader = new FilesystemLoader('../app/views');
+        $this->twig = new Environment($loader);
     }
 
-    public function view($view, $data = [])
+    protected function renderTemplate(string $templatePath, array $params = []): string
     {
-        require_once '../app/views/' . $view . '.php';
+        return $this->twig->render($templatePath, $params);
     }
 }

@@ -1,0 +1,20 @@
+{
+  "name": "gpetraroli/simple_mvc",
+  "description": "A simple mvc framework",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Giuseppe Petraroli",
+      "email": "g.petraroli@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "twig/twig": "^3.3"
+  }
+}
