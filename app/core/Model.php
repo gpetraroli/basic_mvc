@@ -2,8 +2,6 @@
 
 namespace App\core;
 
-use App\Model\Connection;
-
 class Model
 {
     protected \PDO $pdo;
