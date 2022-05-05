@@ -11,6 +11,8 @@ class ItemsController extends Controller
     {
         $itemsModel = new ItemsModel();
 
-        return $this->renderTemplate('items/list.html.twig', $itemsModel->selectAll());
+        $items = $itemsModel->selectAll();
+
+        return $this->renderTemplate('items/list.html.twig', ['items' => $items]);
     }
 }

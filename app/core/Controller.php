@@ -13,7 +13,11 @@ class Controller
     public function __construct()
     {
         $loader = new FilesystemLoader('../app/views');
-        $this->twig = new Environment($loader);
+        $this->twig = new Environment($loader, [
+            'debug' => true,
+        ]);
+
+        $this->twig->addExtension(new \Twig\Extension\DebugExtension());
     }
 
     protected function renderTemplate(string $templatePath, array $params = []): string
