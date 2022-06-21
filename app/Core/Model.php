@@ -30,4 +30,6 @@ class Model
 
         return $this->pdo->query($query)->fetchAll();
     }
+
+//    TODO: add delete, selectOneBy, ...
 }
