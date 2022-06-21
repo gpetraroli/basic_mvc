@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 class App
 {
     protected $controller = 'Home';
@@ -12,15 +14,14 @@ class App
     {
         $url = explode('/', filter_var(trim($_SERVER['REQUEST_URI'], '/'), FILTER_SANITIZE_URL));
 
-        if(file_exists('../app/controllers/' . $url[0] . '.php'))
+        if(file_exists('../app/Controllers/' . $url[0] . '.php'))
         {
             $this->controller = ucfirst($url[0]);
             unset($url[0]);
         }
 
-        require_once '../app/controllers/' . $this->controller . '.php';
-
-        $this->controller = new $this->controller;
+        $controllerFQCN = 'App\\Controllers\\' . $this->controller;
+        $this->controller = new $controllerFQCN;
 
         if(isset($url[1]))
         {
