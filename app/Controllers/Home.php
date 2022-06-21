@@ -3,15 +3,18 @@
 namespace App\Controllers;
 
 use App\Core\Controller;
-use App\Models\User;
+use App\Models\Item;
 
 class Home extends Controller
 {
     public function index()
     {
-        $user = new User();
-        $users = $user->selectAll();
+        $itemManager = new Item();
+        $items = $itemManager->selectAll();
 
-        $this->view('home/index.html.twig', ['controllerName' => 'Home/index']);
+        $this->view('home/index.html.twig', [
+            'controllerName' => 'Home/index',
+            'items' => $items,
+        ]);
     }
 }
