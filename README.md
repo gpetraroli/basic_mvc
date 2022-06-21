@@ -18,3 +18,7 @@ https://.../controller/method/param1/param2/...
 It creates dynamically the controller passed in the URL storing it in his private field as well as the methods and an array of parameters.
 - If no controller was found it will use the default one ('Home' in this case);
 - If no method was passed it will use the default one ('index' in this case).
+
+TODO:
+- integrate Doctrine ORM
+- manage env variables
